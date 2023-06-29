@@ -201,6 +201,11 @@ class Chrome(InspectRequestsMixin, DriverCommonMixin, _Chrome):
         # Prevent Chrome from bypassing the Selenium Wire proxy
         # for localhost addresses.
         chrome_options.add_argument('--proxy-bypass-list=<-loopback>')
+        chrome_options.add_argument('--incognito')
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--disable-dev-shm-usage')
+        chrome_options.add_argument('--no-sandbox')
+        chrome_options.add_argument("--disable-setuid-sandbox")
         kwargs['options'] = chrome_options
 
         config = self._setup_backend(seleniumwire_options)
